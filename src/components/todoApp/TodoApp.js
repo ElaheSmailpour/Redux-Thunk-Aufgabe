@@ -1,7 +1,7 @@
 import React from 'react'
 
 import AufgabenListe from "../todoApp/AufgabenListe"
-
+import AufgabenInput from "../todoApp/AufgabenInput"
 import "./todoapp.css"
 class TodoApp extends React.Component {
     constructor(props) {
@@ -14,25 +14,26 @@ class TodoApp extends React.Component {
         this.handleChange = this.handleChange.bind(this)
     }
     aufgabenhinzufügen() {
-        this.setState(state=>({
-            aufgaben:[...state.aufgaben,this.state.textInput],
-            textInput:''
+        this.setState(state => ({
+            aufgaben: [...state.aufgaben, this.state.textInput],
+            textInput: ''
         }))
     }
 
     handleChange(event) {
-this.setState({textInput:event.target.value})
+        this.setState({ textInput: event.target.value })
     }
     render() {
         return (
 
             <div className="TodoApp">
                 <h1>TodoAPP</h1>
-                <input type="text" placeholder="enter your list"  value={this.state.textInput} onChange={this.handleChange} />
-                <button onClick={this.aufgabenhinzufügen}>Add</button>
-
+               
+                <AufgabenInput aufgabenhinzufügen={this.aufgabenhinzufügen} handleChange={this.handleChange} textInput={this.state.textInput} />
                 <AufgabenListe aufgaben={this.state.aufgaben} />
             </div>
+            
+
 
         );
     }
