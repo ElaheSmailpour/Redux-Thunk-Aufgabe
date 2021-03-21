@@ -3,15 +3,16 @@ const Aufgabenliste = (props) => {
     return (
         <div classname="Aufgabenliste">
             <h1>unser Aufgabeliste:</h1>
-        <ul>
+            <ul>
 
-               
-        {props.aufgaben.map((element,index) => {
-                return <AufgabenListenItem key={index} aufgabe={element} />
-            })
-            }
-           
-        </ul>
+                {props.aufgaben.map((element, index) => {
+                    return <AufgabenListenItem key={index} aufgabe={element} />
+                })}
+
+
+            </ul>
+
+
         </div>
     )
 }
