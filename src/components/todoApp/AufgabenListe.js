@@ -9,7 +9,8 @@ const AufgabenListe = (props) => {
                 return <AufgabenListeItem key={index} aufgabe={element} />
             })
             }
-            
+           
+
         </ul>
     </div>
     )

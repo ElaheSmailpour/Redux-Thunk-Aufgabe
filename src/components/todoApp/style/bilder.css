@@ -4,3 +4,11 @@ img{
   height: 100%;
   border-radius: 50%;
 }
+.karte{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 3px red solid;
+  padding: 10px;
+  margin :10px;
+}

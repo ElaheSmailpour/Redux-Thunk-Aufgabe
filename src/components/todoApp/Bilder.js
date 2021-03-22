@@ -1,8 +1,8 @@
-import "../todoApp/style/bilder.css"  
+
 const Bilder=(props)=>{
     return (
-        <div className="Bilder" >
-  <img src={props.src} alt="bild"/>
+        <div className="Bilder">
+          <img src={props.src} alt="bild"/>
         </div>
     )
 }
