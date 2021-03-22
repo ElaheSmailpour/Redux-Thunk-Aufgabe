@@ -1,14 +1,17 @@
 import React from 'react'
-
+import Bilder from "../todoApp/Bilder"
+import Bild from "../todoApp/image/vogel1.jpeg"
 import AufgabenListe from "../todoApp/AufgabenListe"
 import AufgabenInput from "../todoApp/AufgabenInput"
 import "./todoapp.css"
+
 class TodoApp extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             aufgaben: [],
             textInput: ''
+           
         }
         this.aufgabenhinzufügen = this.aufgabenhinzufügen.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -28,11 +31,12 @@ class TodoApp extends React.Component {
 
             <div className="TodoApp">
                 <h1>TodoAPP</h1>
-               
+                <Bilder src={Bild} />
                 <AufgabenInput aufgabenhinzufügen={this.aufgabenhinzufügen} handleChange={this.handleChange} textInput={this.state.textInput} />
                 <AufgabenListe aufgaben={this.state.aufgaben} />
+                
             </div>
-            
+
 
 
         );
