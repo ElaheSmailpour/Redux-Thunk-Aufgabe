@@ -47,14 +47,23 @@ class TodoApp extends React.Component {
     handleChange(event) {
         this.setState({ textInput: event.target.value })
     }
-    componentDidMount(){
+    componentDidMount() {
         console.log("geboren!")
+        let speicher = localStorage;
+        let aufgaben = speicher.getItem("todoappaufgabe")
+        if (aufgaben) {
+            let todos = JSON.parse(aufgaben)
+            this.setState({ aufgaben: todos })
+        }
     }
-    componentDidUpdate(){
+    componentDidUpdate() {
         console.log("etwas bei state oder props geändert!")
+        let speicher = localStorage;
+        speicher.setItem("todoappaufgabe", JSON.stringify(this.state.aufgaben))
+
     }
-    componentWillUnmount(){
-        console.log("app geschliessen!")
+    componentWillUnmount() {
+        console.log("gleich ist schluss!")
     }
     render() {
         return (
@@ -62,7 +71,7 @@ class TodoApp extends React.Component {
             <div className="TodoApp">
                 <h1>TodoAPP</h1>
 
-                {this.state.bilder.map((element,index) => {
+                {this.state.bilder.map((element, index) => {
                     return (
                         <div className="karte">
                             <Bilder src={element.bild} size={element.size} type={element.type} key={index} />
