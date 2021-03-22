@@ -36,6 +36,7 @@ class TodoApp extends React.Component {
         }
         this.aufgabenhinzufügen = this.aufgabenhinzufügen.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.löschhändler=this.löschhändler.bind(this)
     }
     aufgabenhinzufügen() {
         this.setState(state => ({
@@ -43,23 +44,35 @@ class TodoApp extends React.Component {
             textInput: ''
         }))
     }
+    löschhändler(event){
+        
+        let löschId = Number.parseInt(event.target.id.slice("todoitem".length));
+        console.log("Element löschen", löschId);
+        let aktuleaufgaben=this.state.aufgaben;
+        console.log("aktuleaufgaben",aktuleaufgaben)
+        aktuleaufgaben.splice(löschId,1)
+        this.setState({aufgaben:aktuleaufgaben})
+    }
 
     handleChange(event) {
         this.setState({ textInput: event.target.value })
     }
     componentDidMount() {
         console.log("geboren!")
-        let speicher = localStorage;
-        let aufgaben = speicher.getItem("todoappaufgabe")
-        if (aufgaben) {
-            let todos = JSON.parse(aufgaben)
-            this.setState({ aufgaben: todos })
+        let speicher=localStorage;
+        let aufgaben=speicher.getItem("todoappaufgabe");
+        if(aufgaben){
+            let todos=JSON.parse(aufgaben)
+            this.setState({aufgaben:todos})
         }
+        
+
     }
     componentDidUpdate() {
         console.log("etwas bei state oder props geändert!")
-        let speicher = localStorage;
-        speicher.setItem("todoappaufgabe", JSON.stringify(this.state.aufgaben))
+        let speicher=localStorage;
+        speicher.setItem("todoappaufgabe",JSON.stringify(this.state.aufgaben))
+       
 
     }
     componentWillUnmount() {
@@ -81,7 +94,7 @@ class TodoApp extends React.Component {
                 })}
 
                 <AufgabenInput aufgabenhinzufügen={this.aufgabenhinzufügen} handleChange={this.handleChange} textInput={this.state.textInput} />
-                <AufgabenListe aufgaben={this.state.aufgaben} />
+                <AufgabenListe aufgaben={this.state.aufgaben} löschhändler={this.löschhändler} />
 
             </div>
 

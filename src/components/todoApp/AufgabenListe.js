@@ -6,7 +6,8 @@ const AufgabenListe = (props) => {
         
         <ul>
             {props.aufgaben.map((element,index) => {
-                return <AufgabenListeItem key={index} aufgabe={element} />
+                return <AufgabenListeItem key={index} aufgabe={element} 
+                löschhändler={props.löschhändler} löschIndex={index}/>
             })
             }
            
