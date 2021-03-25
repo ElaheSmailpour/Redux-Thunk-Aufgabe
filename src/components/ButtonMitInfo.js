@@ -1,5 +1,6 @@
 import { connect } from "react-redux"
-
+import PropTypes from 'prop-types';
+import {addButton} from "../thunk/thunk"
 const ButtonMitInfo = (props) => {
     return (
         <div className="ButtonMitInfo">
@@ -21,13 +22,13 @@ const ButtonMitInfo = (props) => {
 
     )
 }
+ButtonMitInfo.prototypes={
+    addButton:PropTypes.func.isRequired
+}
 const mapStateToProps = state => ({
     buttonZahl: state.buttonZahl,
     auswahl: state.auswahl
 })
-const mapDispatchToProps = dispatsch => ({
-    addButton: (auswahl) => dispatsch({ type: "ADDBUTTON", payload: auswahl })
-})
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ButtonMitInfo)
+export default connect(mapStateToProps, {addButton})(ButtonMitInfo)

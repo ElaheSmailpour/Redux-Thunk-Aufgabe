@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-
+import {zahlabziehen,zahlhochrechnen} from "../thunk/thunk"
 const Zähler = (props) => {
     return (
         <div className="zähler">
@@ -16,9 +16,6 @@ const mapStateToProps = state => ({
     zahl2: state.zahl2
 
 })
-const mapDispatchToProps = dispatch => ({
-    zahlhochrechnen: () => dispatch({ type: "PLUS" }),
-    zahlabziehen: () => dispatch({ type: "MINUS" })
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Zähler)
+
+export default connect(mapStateToProps, {zahlabziehen,zahlhochrechnen})(Zähler)

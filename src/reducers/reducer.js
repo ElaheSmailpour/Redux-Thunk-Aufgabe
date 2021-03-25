@@ -1,4 +1,4 @@
-
+import {ADDBUTTON,NAME_HINZUFUEGEN,PLUS,MINUS} from "../action/actions"
 const initialState = {
     zahl: 1,
     zahl2: 100,
@@ -12,14 +12,14 @@ const initialState = {
 }
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-        case "PLUS":
+        case PLUS:
             return ({ ...state, zahl: state.zahl + 1 })
-        case "MINUS":
+        case MINUS:
             return ({ ...state, zahl2: state.zahl2 - 1 })
-        case "ADDBUTTON":
+        case ADDBUTTON:
             return ({ ...state, buttonZahl: action.payload })
            
-            case "NAME_HINZUFUEGEN":
+            case NAME_HINZUFUEGEN:
             return {...state, name: action.payload }
 
         default:

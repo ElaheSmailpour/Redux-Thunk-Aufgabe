@@ -1,6 +1,7 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
+import { connect } from 'react-redux'
+import {nameHinzufuegen} from "../thunk/thunk"
 class InputFeld extends React.Component {
   constructor(props){
     super(props)
@@ -31,13 +32,10 @@ class InputFeld extends React.Component {
     )
   }
 }
-
 const mapStateToProps = state => ({
   name: state.name
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  nameHinzufuegen: (data) => dispatch({type: "NAME_HINZUFUEGEN", payload: data})
-}) 
 
-export default connect(mapStateToProps, mapDispatchToProps)(InputFeld)
+
+export default connect(mapStateToProps, {nameHinzufuegen})(InputFeld)
