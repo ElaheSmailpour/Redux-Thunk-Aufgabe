@@ -3,7 +3,13 @@
  export const PLUS="plus"
  export const MINUS="MINUS"
  export const ADDBUTTON="ADDBUTTON"
+ export const ADD="ADD"
 
+ export const actionadd=()=>{
+     return{
+         type:ADD
+     }
+ }
  export const actionzahlhochrechnen=()=>{
      return {
         type: PLUS
