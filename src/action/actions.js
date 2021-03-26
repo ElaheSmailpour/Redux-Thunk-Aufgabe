@@ -4,6 +4,7 @@
  export const MINUS="MINUS"
  export const ADDBUTTON="ADDBUTTON"
  export const ADD="ADD"
+ export const ADDRESSEHINZUFÜGEN="ADDRESSEHINZUFÜGEN"
 
  export const actionadd=()=>{
      return{
@@ -21,6 +22,7 @@
          type:MINUS
      }
  }
+ export const actionADDRESSEHINZUFÜGEN=(addresse)=>({type:ADDRESSEHINZUFÜGEN,payload:addresse})
  export const actionnameHinzufuegen=(data)=>({type: NAME_HINZUFUEGEN,payload:data})
 
 

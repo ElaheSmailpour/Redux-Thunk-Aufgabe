@@ -6,6 +6,7 @@ import Zähler from "./components/Zähler";
 import ButtonMitInfo from "./components/ButtonMitInfo"
 import Inputfeld from "./components/Inputfeld"
 import Zahl from "./components/Zahl"
+import InputAddresse from "./components/InputAddresse"
 function App() {
   return (
     <Provider store={store}>
@@ -15,6 +16,7 @@ function App() {
      <ButtonMitInfo/>
      <Inputfeld/>
      <Zahl/>
+     <InputAddresse/>
     </div>
     </Provider>
   );
